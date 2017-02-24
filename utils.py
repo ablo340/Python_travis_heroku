@@ -39,12 +39,28 @@ def integrate(function, lower, upper):
     Post: Returns an approximation of the integral from 'lower' to 'upper'
           of the specified 'function'.
     """
-    x = lower
-    sum = 0
-    while x <= upper:
-        sum += eval(function) * 0.01
-        x += 0.01
-    return sum
+    def sum1(function,lower,upper):
+        sum1=0
+        h=(upper-lower)/10000
+        x=lower+h
+        while x<upper:
+            sum1+=h*eval(function)
+            x+=h
+        return sum1
+    def sum2(function,lower,upper):
+        sum2=0
+        h=(upper-lower)/10000
+        x=lower
+        sum2=h*(eval(function)/2)
+        return sum2
+    def sum3(function,lower,upper):
+        sum3=0
+        h=(upper-lower)/10000
+        x=upper
+        sum3=h*(eval(function)/2)
+        return sum3
+
+    return sum2(function,lower,upper)+sum1(function,lower,upper)+sum3(function,lower,upper)
 
 if __name__ == '__main__':
     print(fact(5))
