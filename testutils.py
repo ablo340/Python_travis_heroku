@@ -16,7 +16,8 @@ class TestUtils(unittest.TestCase):
         pass
     
     def test_integrate(self):
-        self.assertEqual(utils.integrate(1,0,150),150)
+        self.assertEqual(round(utils.integrate('x**2-1',-1,1),3),-1.333)
+        self.assertEqual(round(utils.integrate('x',0,3),3),4.5)
         pass
 
 if __name__ == '__main__':
